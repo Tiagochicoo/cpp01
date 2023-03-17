@@ -6,16 +6,15 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:12:50 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/17 12:13:33 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:34:22 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "../includes/Zombie.hpp"
 
 int	main(void)
 {
-	
-
+	Zombie test;
 
 	return (0);
 }
