@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 12:04:35 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/19 12:20:04 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:07:01 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-HumanA::HumanA(std::string name, Weapon weapon) : _weapon(weapon), _name(name)
+HumanA::HumanA(std::string name, Weapon& weapon) : _weapon(weapon), _name(name)
 {
-	this->_name = name;
-	this->_weapon = weapon;
-	std::cout << name << " with " << weapon.getType() << " constructed!\n";
+	// std::cout << name << " with " << weapon.getType() << " constructed!\n";
 }
 
 /*
@@ -29,7 +27,7 @@ HumanA::HumanA(std::string name, Weapon weapon) : _weapon(weapon), _name(name)
 
 HumanA::~HumanA()
 {
-	std::cout << "Human A Destructed!\n";
+	// std::cout << this->_name << " Destructed!\n";
 }
 
 /*
@@ -40,7 +38,7 @@ HumanA::~HumanA()
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	HumanA::attack() const
+void	HumanA::attack()
 {
 	std::cout << this->_name << " attacks with their " << this->_weapon.getType() << "\n";
 }
@@ -48,6 +46,5 @@ void	HumanA::attack() const
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
 
 /* ************************************************************************** */
