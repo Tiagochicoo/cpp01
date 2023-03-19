@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 19:08:52 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/18 20:44:48 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/03/19 11:08:30 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ZombieHorde::ZombieHorde(int N, std::string name)
 
 ZombieHorde::~ZombieHorde()
 {
-	// delete[] _zombies;
+	delete[] _zombies;
 	std::cout << "ZombieHorde Destructed!" << std::endl;
 }
 

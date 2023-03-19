@@ -6,13 +6,13 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 12:33:26 by tpereira          #+#    #+#              #
-#    Updated: 2023/03/18 20:34:41 by tpereira         ###   ########.fr        #
+#    Updated: 2023/03/19 11:07:13 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROG		= zombieHorde
 CC			= g++
-CFLAGS		= -Wall -Wextra -Werror -g -std=c++98 -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 SRCS		= ./srcs/*.cpp
 INC			= ./includes/*.hpp
 
