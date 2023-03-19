@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 12:04:35 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/19 22:28:00 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:38:06 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-HumanB::HumanB(std::string name) : _weapon(nullptr), _name(name)
+HumanB::HumanB(std::string name) : _weapon(NULL), _name(name)
 {
 	// std::cout << name << " constructed!\n";
 }
@@ -45,7 +45,7 @@ void HumanB::setWeapon(Weapon& weapon)
 
 void	HumanB::attack() const
 {
-	if (this->_weapon == nullptr)
+	if (this->_weapon == NULL)
 		std::cout << this->_name << " attacks with their bare hands!\n";
 	else
 		std::cout << this->_name << " attacks with their " << this->_weapon->getType() << "\n";
