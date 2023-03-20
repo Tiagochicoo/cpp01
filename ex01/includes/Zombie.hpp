@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:33:50 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/19 11:12:38 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:26:37 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <sstream>
 
 class Zombie
 {
