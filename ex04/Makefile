@@ -6,7 +6,7 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 12:33:26 by tpereira          #+#    #+#              #
-#    Updated: 2023/03/20 18:05:53 by tpereira         ###   ########.fr        #
+#    Updated: 2023/03/20 21:06:01 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INC			= ./includes/*.hpp
 all :
 	@$(CC) $(CFLAGS) $(SRCS) -o $(PROG)
 	@printf "\e[38;5;46m ╔════════════════════════════════════╗\e[0m\n"
-	@printf "\e[38;5;46m█▓▒░  Compiled Unnecessary Violence   ░▒▓█ \e[0m\n"
+	@printf "\e[38;5;46m█▓▒░  Compiled Sed is for losers    ░▒▓█ \e[0m\n"
 	@printf "\e[38;5;46m ╚════════════════════════════════════╝\e[0m\n"
 
 clean :

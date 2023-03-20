@@ -3,5 +3,6 @@
 
 # include <iostream>
 # include <fstream>
+# include <sstream>
 
 #endif /* ************************************************************ MAIN_H */
