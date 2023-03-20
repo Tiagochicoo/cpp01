@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 15:34:02 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/20 19:12:28 by tpereira         ###   ########.fr       */
+/*   Created: 2023/03/19 12:00:03 by tpereira          #+#    #+#             */
+/*   Updated: 2023/03/19 22:15:58 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Zombie.hpp"
+#include "../includes/Weapon.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Zombie::Zombie(std::string name) : _name(name)
+Weapon::Weapon(std::string type) : _type(type)
 {
-	std::cout << this->_name << " Constructed!" << std::endl;
+	// std::cout << type << " Constructed \n";
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Zombie::~Zombie()
+Weapon::~Weapon()
 {
-	std::cout << this->_name << " Destructed!" << std::endl;
+	// std::cout << this->_type << " Destructed \n";
 }
 
 /*
@@ -38,37 +38,18 @@ Zombie::~Zombie()
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Zombie::announce(void) const
+std::string Weapon::getType() const
 {
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	return this->_type;
 }
 
-Zombie* Zombie::newZombie(std::string name)
+void	Weapon::setType(std::string type)
 {
-	Zombie *newZombie = new Zombie;
-	newZombie->setName(name);
-	return (newZombie);
-}
-
-void Zombie::randomChump(std::string name)
-{
-	Zombie randomChump;
-	randomChump.setName(name);
-	randomChump.announce();
+	_type = type;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
-void Zombie::setName(std::string name)
-{
-	this->_name = name;
-}
-
-std::string Zombie::getName() const
-{
-	return (this->_name);
-}
 
 /* ************************************************************************** */

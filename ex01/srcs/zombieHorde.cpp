@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 15:34:02 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/20 19:12:28 by tpereira         ###   ########.fr       */
+/*   Created: 2023/03/17 19:08:52 by tpereira          #+#    #+#             */
+/*   Updated: 2023/03/19 11:15:33 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,23 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Zombie::Zombie(std::string name) : _name(name)
+ZombieHorde::ZombieHorde(int N, std::string name)
 {
-	std::cout << this->_name << " Constructed!" << std::endl;
+	_zombies = new Zombie[N];
+	_size = N;
+	for (int i = 0; i < _size; i++)
+		_zombies[i].setName(name + " " + std::to_string(i+1));
+	std::cout << "A ZombieHorde was Constructed!" << std::endl;
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Zombie::~Zombie()
+ZombieHorde::~ZombieHorde()
 {
-	std::cout << this->_name << " Destructed!" << std::endl;
+	delete[] _zombies;
+	std::cout << "ZombieHorde Destructed!" << std::endl;
 }
 
 /*
@@ -38,37 +43,23 @@ Zombie::~Zombie()
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Zombie::announce(void) const
+Zombie* ZombieHorde::zombieHorde(int N, std::string name)
 {
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	Zombie* horde = new Zombie[N];
+	for (int i = 0; i < N; i++)
+		horde[i].setName(name + " " + std::to_string(i + 1));
+	return horde;
 }
 
-Zombie* Zombie::newZombie(std::string name)
+void	ZombieHorde::announce(void) const
 {
-	Zombie *newZombie = new Zombie;
-	newZombie->setName(name);
-	return (newZombie);
-}
-
-void Zombie::randomChump(std::string name)
-{
-	Zombie randomChump;
-	randomChump.setName(name);
-	randomChump.announce();
+	for (int i = 0; i < _size; i++)
+		_zombies[i].announce();
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void Zombie::setName(std::string name)
-{
-	this->_name = name;
-}
-
-std::string Zombie::getName() const
-{
-	return (this->_name);
-}
 
 /* ************************************************************************** */

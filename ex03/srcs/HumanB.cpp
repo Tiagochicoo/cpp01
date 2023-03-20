@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 15:34:02 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/20 19:12:28 by tpereira         ###   ########.fr       */
+/*   Created: 2023/03/19 12:04:35 by tpereira          #+#    #+#             */
+/*   Updated: 2023/03/19 22:38:06 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Zombie.hpp"
+#include "../includes/HumanB.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Zombie::Zombie(std::string name) : _name(name)
+HumanB::HumanB(std::string name) : _weapon(NULL), _name(name)
 {
-	std::cout << this->_name << " Constructed!" << std::endl;
+	// std::cout << name << " constructed!\n";
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Zombie::~Zombie()
+HumanB::~HumanB()
 {
-	std::cout << this->_name << " Destructed!" << std::endl;
+	// std::cout << this->_name << " Destructed!\n";
 }
 
 /*
@@ -38,37 +38,22 @@ Zombie::~Zombie()
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Zombie::announce(void) const
+void HumanB::setWeapon(Weapon& weapon)
 {
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	this->_weapon = &weapon;
 }
 
-Zombie* Zombie::newZombie(std::string name)
+void	HumanB::attack() const
 {
-	Zombie *newZombie = new Zombie;
-	newZombie->setName(name);
-	return (newZombie);
-}
-
-void Zombie::randomChump(std::string name)
-{
-	Zombie randomChump;
-	randomChump.setName(name);
-	randomChump.announce();
+	if (this->_weapon == NULL)
+		std::cout << this->_name << " attacks with their bare hands!\n";
+	else
+		std::cout << this->_name << " attacks with their " << this->_weapon->getType() << "\n";
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void Zombie::setName(std::string name)
-{
-	this->_name = name;
-}
-
-std::string Zombie::getName() const
-{
-	return (this->_name);
-}
 
 /* ************************************************************************** */

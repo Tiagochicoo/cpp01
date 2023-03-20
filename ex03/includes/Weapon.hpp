@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 12:12:50 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/20 19:12:07 by tpereira         ###   ########.fr       */
+/*   Created: 2023/03/19 12:00:05 by tpereira          #+#    #+#             */
+/*   Updated: 2023/03/19 21:22:14 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Zombie.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-int	main(void)
+# include <iostream>
+# include <string>
+
+class Weapon
 {
-	Zombie foo;
-	Zombie *bar = foo.newZombie("Bar");
-	
-	bar->randomChump("Chump");
-	foo.announce();
-	bar->announce();
+	private:
+		std::string _type;
 
-	delete bar;
+	public:
 
-	return (0);
-}
+		Weapon(std::string type);
+		~Weapon();
+
+		std::string getType() const;
+		void		setType(std::string type);
+};
+
+#endif /* ********************************************************** WEAPON_H */
