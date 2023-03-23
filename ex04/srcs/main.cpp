@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 22:44:25 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/21 18:03:34 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/03/23 09:00:15 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,40 @@ std::string getFileContent(char **argv)
 
 std::string replaceString(std::string content, std::string s1, std::string s2, std::string filename)
 {
+	std::string newContent;
+	int			start;
+	int			end;
+	int			j;
 	(void)s2;
+
 	if (content.find(s1) != std::string::npos)
-		std::cout << "\"" << s1 << "\"" << " found on file content!\n";
+	{
+		start = content.find(s1);
+		for (int i = 0; i < (int)content.size(); i++)
+		{
+			end = 0;
+			if (content[i] == s1[0])
+				start = i;
+			while (content[i] == s1[0])
+				i++;
+			end = i;
+			if ((end - start) == (int)s1.size())
+			{
+				j = 0;
+				while (start < end)
+				{
+					std::cout << "content[start]: " << content[start] << " | s2[j]: " << s2[j] << " | j: " << j << "\n";
+					content[start] = s2[j];
+					start++;
+					j++;
+				}
+			}
+		}
+	}
 	else
 		std::cout << "\"" << s1 << "\"" << " not found on " << filename <<"\n";
 	return (content);
 }
-
 
 int	main(int argc, char **argv)
 {
