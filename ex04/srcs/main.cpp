@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 22:44:25 by tpereira          #+#    #+#             */
-/*   Updated: 2023/04/03 10:42:43 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:38:26 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,41 +23,40 @@ std::string getFileContent(char **argv)
 std::string replaceString(std::string content, std::string s1, std::string s2, std::string filename)
 {
 	std::string newContent;
-	size_t		tmp;
 	int			start;
 	int			end;
-	int			j;
 	(void)s2;
 
-	end = INT_MAX;
-	j = 0;
-	tmp = 0;
-	if (content.find(s1) != std::string::npos)
+	start = 0;
+	end = 0;
+	while (1)
 	{
-		while (content.find(s1) != std::string::npos)
+		if (content.find(s1) != std::string::npos)
 		{
-			start = content.find(s1[j]);
-			tmp = start;
-			while (content[start] == s1[j])
+			if (newContent.length() > 0)
 			{
-				j++;
-				start++;
+				start = newContent.find(s1);
+				end = start + s1.length();
+				newContent += " " + newContent.substr(0, start);
 			}
-			start = tmp;
-			end = j + tmp;
-			while (end > start)
+			else
 			{
-				content[start] = s2[s1.length() - j];
-				start++;
-				j--;
-			}
-			if (tmp == content.size())
+				start = newContent.find(s1);
+				end = start + s1.length();
+				newContent = content.substr(0, start);
+			}				
+			newContent += " " + s2;
+			content = content.substr(end + s2.length());
+			if (content.length() == 0)
 				break ;
 		}
+		else
+		{
+			std::cout << "\"" << s1 << "\"" << " not found on " << filename <<"\n";
+			break ;
+		}
 	}
-	else
-		std::cout << "\"" << s1 << "\"" << " not found on " << filename <<"\n";
-	return (content);
+	return (newContent);
 }
 
 int	main(int argc, char **argv)
