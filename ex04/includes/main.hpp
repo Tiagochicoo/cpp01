@@ -4,6 +4,6 @@
 # include <iostream>
 # include <fstream>
 # include <sstream>
-# include <limits.h>
+# include <string>
 
 #endif /* ************************************************************ MAIN_H */
