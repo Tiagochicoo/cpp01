@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Main.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 22:44:25 by tpereira          #+#    #+#             */
-/*   Updated: 2023/03/23 09:00:15 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:12:51 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,33 +23,31 @@ std::string getFileContent(char **argv)
 std::string replaceString(std::string content, std::string s1, std::string s2, std::string filename)
 {
 	std::string newContent;
+	int			tmp;
 	int			start;
 	int			end;
 	int			j;
 	(void)s2;
 
+	end = INT_MAX;
+	j = 0;
+	tmp = 0;
 	if (content.find(s1) != std::string::npos)
 	{
-		start = content.find(s1);
-		for (int i = 0; i < (int)content.size(); i++)
+		start = content.find(s1[j]);
+		tmp = start;
+		while (content[start] == s1[j])
 		{
-			end = 0;
-			if (content[i] == s1[0])
-				start = i;
-			while (content[i] == s1[0])
-				i++;
-			end = i;
-			if ((end - start) == (int)s1.size())
-			{
-				j = 0;
-				while (start < end)
-				{
-					std::cout << "content[start]: " << content[start] << " | s2[j]: " << s2[j] << " | j: " << j << "\n";
-					content[start] = s2[j];
-					start++;
-					j++;
-				}
-			}
+			j++;
+			start++;
+		}
+		start = tmp;
+		end = j + tmp;
+		while (end > start)
+		{
+			content[start] = s2[s1.length() - j];
+			start++;
+			j--;
 		}
 	}
 	else
