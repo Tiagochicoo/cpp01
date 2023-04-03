@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 22:44:25 by tpereira          #+#    #+#             */
-/*   Updated: 2023/04/03 11:38:26 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:16:04 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,39 +23,39 @@ std::string getFileContent(char **argv)
 std::string replaceString(std::string content, std::string s1, std::string s2, std::string filename)
 {
 	std::string newContent;
-	int			start;
-	int			end;
+	size_t		start;
+	size_t		end;
 	(void)s2;
 
 	start = 0;
 	end = 0;
-	while (1)
+	if (content.find(s1) != std::string::npos)
 	{
-		if (content.find(s1) != std::string::npos)
+		while (1)
 		{
-			if (newContent.length() > 0)
+			if (content.find(s1) != std::string::npos)
 			{
-				start = newContent.find(s1);
-				end = start + s1.length();
-				newContent += " " + newContent.substr(0, start);
+				if (newContent.length() > 0)
+				{
+					start = newContent.find(s1);
+					end = start + s1.length();
+					newContent += " " + newContent.substr(0, start);
+				}
+				else
+				{
+					start = content.find(s1);
+					end = start + s1.length();
+					newContent = content.substr(0, start);
+				}
+				newContent += "---------------------"; // + s2;
+				content = content.substr(end + s2.length());
+				if (content.length() == end)
+					break ;
 			}
-			else
-			{
-				start = newContent.find(s1);
-				end = start + s1.length();
-				newContent = content.substr(0, start);
-			}				
-			newContent += " " + s2;
-			content = content.substr(end + s2.length());
-			if (content.length() == 0)
-				break ;
-		}
-		else
-		{
-			std::cout << "\"" << s1 << "\"" << " not found on " << filename <<"\n";
-			break ;
 		}
 	}
+	else
+		std::cout << "\"" << s1 << "\"" << " not found on " << filename <<"\n";
 	return (newContent);
 }
 
