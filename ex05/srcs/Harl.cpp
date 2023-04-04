@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 09:38:48 by tpereira          #+#    #+#             */
-/*   Updated: 2023/04/04 12:14:12 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:57:54 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@
 */
 
 Harl::Harl()
-{
+{ 
+	this->text[0] = "DEBUG";
+	this->text[1] = "INFO";
+	this->text[2] = "WARNING";
+	this->text[3] = "ERROR";
 }
 
 /*
@@ -36,46 +40,33 @@ Harl::~Harl()
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-enum levels {	m_debug,
-				m_info,
-				m_warning,
-				m_error,
-				m_fail
-			};
-
-levels ft_convert(std::string level)
-{
-	if (level == "DEBUG")
-		return (m_debug);
-	if (level == "INFO")
-		return (m_info);
-	if (level == "WARNING")
-		return (m_warning);
-	if (level == "ERROR")
-		return (m_error);
-	else
-		return (m_fail);
-}
 
 void Harl::complain(std::string level)
 {
-	switch (ft_convert(level))
+	size_t i;
+	
+	for (i = 0; i < 4; i++)
 	{
-		case m_debug:
-				this->debug();
-				break;
-		case m_info:
-				this->info();
-				break;
-		case m_warning:
-				this->warning();
-				break;
-		case m_error:
-				this->error();
-				break;
-		default:
-			std::cout << "Error: Level doesn't exist!\nPlease use one of the following levels: \"DEBUG\", \"INFO\", \"WARNING\" or \"ERROR\"\n";
+		if (level.compare(Harl::text[i]) == 0)
 			break;
+	}
+	switch (i)
+	{
+	case 0:
+			this->debug();
+			break;
+	case 1:
+			this->info();
+			break;
+	case 2:
+			this->warning();
+			break;
+	case 3:
+			this->error();
+			break;
+	default:
+		std::cout << "Error: Level doesn't exist!\nPlease use one of the following levels: \"DEBUG\", \"INFO\", \"WARNING\" or \"ERROR\"\n";
+		break;
 	}
 }
 
@@ -91,7 +82,7 @@ void Harl::info(void)
 
 void Harl::warning(void)
 {
-	std::cout << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month.\n ";
+	std::cout << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month.\n";
 }
 
 void Harl::error(void)

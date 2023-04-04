@@ -67,6 +67,8 @@
 		"iomanip": "cpp",
 		"stack": "cpp",
 		"__verbose_abort": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"__tree": "cpp",
+		"map": "cpp"
 	}
 }
