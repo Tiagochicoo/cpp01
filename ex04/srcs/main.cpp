@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Main.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 22:44:25 by tpereira          #+#    #+#             */
-/*   Updated: 2023/04/03 17:28:08 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/04/04 09:30:11 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ std::string replaceString(std::string content, std::string s1, std::string s2, s
 				break ;
 		}
 		newContent += content.substr(0, content.length());
-		std::cout << newContent << std::endl;		
 	}
 	else
 		std::cout << "\"" << s1 << "\"" << " not found on " << filename <<"\n";
