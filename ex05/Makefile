@@ -6,7 +6,7 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 12:33:26 by tpereira          #+#    #+#              #
-#    Updated: 2023/04/04 09:38:12 by tpereira         ###   ########.fr        #
+#    Updated: 2023/04/04 11:44:43 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INC			= ./includes/*.hpp
 all :
 	@$(CC) $(CFLAGS) $(SRCS) -o $(PROG)
 	@printf "\e[38;5;46m ╔════════════════════════════════════╗\e[0m\n"
-	@printf "\e[38;5;46m█▓▒░  		Compiled Harl 2.0	    ░▒▓█ \e[0m\n"
+	@printf "\e[38;5;46m█▓▒░  	   Compiled Harl 2.0	    ░▒▓█ \e[0m\n"
 	@printf "\e[38;5;46m ╚════════════════════════════════════╝\e[0m\n"
 
 clean :

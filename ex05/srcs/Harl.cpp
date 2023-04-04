@@ -6,11 +6,11 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 09:38:48 by tpereira          #+#    #+#             */
-/*   Updated: 2023/04/04 11:12:32 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:14:12 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "../includes/Harl.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -36,28 +36,68 @@ Harl::~Harl()
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+enum levels {	m_debug,
+				m_info,
+				m_warning,
+				m_error,
+				m_fail
+			};
 
-Harl debug(void)
+levels ft_convert(std::string level)
 {
-	
+	if (level == "DEBUG")
+		return (m_debug);
+	if (level == "INFO")
+		return (m_info);
+	if (level == "WARNING")
+		return (m_warning);
+	if (level == "ERROR")
+		return (m_error);
+	else
+		return (m_fail);
 }
 
-Harl info(void)
+void Harl::complain(std::string level)
 {
-
+	switch (ft_convert(level))
+	{
+		case m_debug:
+				this->debug();
+				break;
+		case m_info:
+				this->info();
+				break;
+		case m_warning:
+				this->warning();
+				break;
+		case m_error:
+				this->error();
+				break;
+		default:
+			std::cout << "Error: Level doesn't exist!\nPlease use one of the following levels: \"DEBUG\", \"INFO\", \"WARNING\" or \"ERROR\"\n";
+			break;
+	}
 }
 
-Harl warning(void)
+void Harl::debug(void)
 {
-
+	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!\n";
 }
 
-Harl error(void)
+void Harl::info(void)
 {
-
+	std::cout << "I cannot believe adding extra bacon costs more money. You didn't put enough bacon in my burger! If you did, I wouldn't be asking for more!\n";
 }
 
+void Harl::warning(void)
+{
+	std::cout << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month.\n ";
+}
 
+void Harl::error(void)
+{
+	std::cout << "This is unacceptable! I want to speak to the manager now.\n";
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
