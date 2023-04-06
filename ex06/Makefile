@@ -6,11 +6,11 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 12:33:26 by tpereira          #+#    #+#              #
-#    Updated: 2023/04/04 15:02:44 by tpereira         ###   ########.fr        #
+#    Updated: 2023/04/06 17:21:30 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PROG		= harl
+PROG		= harlFilter
 CC			= g++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 SRCS		= ./srcs/*.cpp

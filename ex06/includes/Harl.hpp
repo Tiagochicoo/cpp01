@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 09:38:40 by tpereira          #+#    #+#             */
-/*   Updated: 2023/04/04 14:56:09 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/04/05 17:38:27 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <map>
+# include <climits>
 
 class Harl
 {

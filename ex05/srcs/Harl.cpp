@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 09:38:48 by tpereira          #+#    #+#             */
-/*   Updated: 2023/04/04 14:57:54 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/04/05 17:45:05 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,16 @@ void Harl::complain(std::string level)
 	}
 	switch (i)
 	{
-	case 0:
+		case 0:
 			this->debug();
 			break;
-	case 1:
+		case 1:
 			this->info();
 			break;
-	case 2:
+		case 2:
 			this->warning();
 			break;
-	case 3:
+		case 3:
 			this->error();
 			break;
 	default:
